@@ -35,4 +35,13 @@ private ArrayList<String> pasos;
     public void setPasos(ArrayList<String> pasos) {
         this.pasos = pasos;
     }
+    public void mostrarIngredientes(){
+        for (Ingrediente ingrediente : ingredientes){
+            System.out.println(ingrediente);
+        }
+        for (int i=0; i<ingredientes.size(); i++){
+            System.out.println(i+ "-"+ ingredientes.get(i));
+        }
+    }
+
 }
