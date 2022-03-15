@@ -37,7 +37,7 @@ public class Recetario {
         System.out.println(titulo);
         System.out.println(autor);
         for(Receta receta: receta) {
-            mostrarRecetario();
+            receta.mostrarReceta();
         }
         }
 
