@@ -1,21 +1,21 @@
 import java.util.ArrayList;
 
 public class Recetario {
-    private ArrayList<Recetario> recetario;
+    private ArrayList<Receta> receta;
     private String autor, titulo;
 
-    public Recetario(ArrayList<Recetario> recetario, String autor, String titulo) {
-        this.recetario = recetario;
+    public Recetario(ArrayList<Receta> recetario, String autor, String titulo) {
+        this.receta = recetario;
         this.autor = autor;
         this.titulo = titulo;
     }
 
-    public ArrayList<Recetario> getRecetario() {
-        return recetario;
+    public ArrayList<Receta> getReceta() {
+        return receta;
     }
 
-    public void setRecetario(ArrayList<Recetario> recetario) {
-        this.recetario = recetario;
+    public void setreceta(ArrayList<Receta> recetario) {
+        this.receta = recetario;
     }
 
     public String getAutor() {
@@ -33,4 +33,13 @@ public class Recetario {
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
-}
+    public void mostrarRecetario(){
+        System.out.println(titulo);
+        System.out.println(autor);
+        for(Receta receta: receta) {
+            mostrarRecetario();
+        }
+        }
+
+        }
+
