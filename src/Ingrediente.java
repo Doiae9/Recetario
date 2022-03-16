@@ -33,4 +33,5 @@ public class Ingrediente {
         this.peso = peso;
         System.out.println("Ingrediente creado");
     }
+    public Ingrediente(){}
 }
