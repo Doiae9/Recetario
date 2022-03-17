@@ -47,9 +47,6 @@ private ArrayList<String> pasos;
         this.pasos = pasos;
     }
     public void mostrarIngredientes(){
-        for (Ingrediente ingrediente : ingredientes){
-            System.out.println(ingrediente);
-        }
         for (int i=0; i<ingredientes.size(); i++){
             System.out.println(i+1+ "-" + ingredientes.get(i));
         }

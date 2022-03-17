@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -33,13 +34,16 @@ public class Main {
 
         //los traigo con un get
         //mostrar las opciones que el usuario tiene
-        System.out.println("Bienvenido, elige una opción: ");
-        System.out.println("1. Agregar un ingrediente nuevo ");
-        System.out.println("2. Agregar una receta nueva");
-        System.out.println("3. Ver mi recetario");
+
         //pendiente opción para salir
         Scanner scanner= new Scanner(System.in);
         int respuesta;
+        do{
+            System.out.println("Bienvenido, elige una opción: ");
+            System.out.println("1. Agregar un ingrediente nuevo ");
+            System.out.println("2. Agregar una receta nueva");
+            System.out.println("3. Ver mi recetario");
+            System.out.println("0. Salir");
         respuesta = scanner.nextInt();
         switch (respuesta){
             case 1:
@@ -72,17 +76,42 @@ public class Main {
                 System.out.println("Ingrese el número del ingrediente correspondiente y de enteroo,"+
                         "si ya no quiere agregar más escriba 0");
                 do {
+                    respuesta=scanner.nextInt();
                     if (respuesta != 0) {
                         ingredientesReceta.add(ingredientesDispo.get(respuesta - 1));
                     }
                 } while (respuesta != 0);
+                //se le agrega un valor albitrario a respuesta para que
+                //no se rompa el ciclo y continue corriendo.
+                respuesta= 24;
                 nueva.setIngredientes(ingredientesReceta);
+                ArrayList<String> pasosReceta = new ArrayList<>();
+                System.out.println("Ingrese los pasos de uno a uno y de enter,"+
+                        "si ya no quiere agregar más escriba 0");
+                String res ="";
+                do{
+                    res= scanner.nextLine();
+                    if(!res.equals("0")){
+                        pasosReceta.add(res);
+                    }
+                }while (!res.equals("0"));
+
+                nueva.setPasos(pasosReceta);
+                miRecetario.getReceta().add(nueva);
                 break;
 
             case 3:
+                miRecetario.mostrarRecetario();
                 break;
 
         }
 
+     }while (respuesta!=0);
     }
-}
+}//reto para las recetas;
+//Agregar dos opciones para
+//>Quitar ingredientes
+//>Quitar recetas
+//  Numero para cada receta
+// Pedirle al usuario el número de la receta
+//
