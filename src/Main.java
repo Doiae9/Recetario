@@ -37,12 +37,14 @@ public class Main {
 
         //pendiente opción para salir
         Scanner scanner= new Scanner(System.in);
-        int respuesta;
+        int respuesta, ing;
         do{
             System.out.println("Bienvenido, elige una opción: ");
             System.out.println("1. Agregar un ingrediente nuevo ");
             System.out.println("2. Agregar una receta nueva");
             System.out.println("3. Ver mi recetario");
+            System.out.println("4. Eliminar ingrredientes");
+            System.out.println("5. Eliminar receta");
             System.out.println("0. Salir");
         respuesta = scanner.nextInt();
         switch (respuesta){
@@ -103,6 +105,31 @@ public class Main {
             case 3:
                 miRecetario.mostrarRecetario();
                 break;
+            case 4:
+
+                System.out.println("Cual desea eliminar?");
+                System.out.println("si ya no deesea eliminar mas ingredientes presione 0");
+                System.out.println("Los ingredientes disponibles son: ");
+
+                    for (int i = 0; i < ingredientesDispo.size(); i++) {
+                        System.out.println(i + 1 + ". " + ingredientesDispo.get(i));
+                    }
+                do {
+                    ing = scanner.nextInt();
+                    if(ingredientesDispo.size()-ing > 0){
+                        ingredientesDispo.remove(ing-1);
+                        System.out.println("Ingrediente retirado");
+                    }else{
+
+                        System.out.println("Ese ingrediente no existe");
+                        continue;
+                    }
+
+
+                } while(ing!=0);
+                break;
+            case 5:
+
 
         }
 
@@ -113,5 +140,5 @@ public class Main {
 //>Quitar ingredientes
 //>Quitar recetas
 //  Numero para cada receta
-// Pedirle al usuario el número de la receta
+//  Pedirle al usuario el número de la receta
 //
