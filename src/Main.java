@@ -37,7 +37,7 @@ public class Main {
 
         //pendiente opción para salir
         Scanner scanner= new Scanner(System.in);
-        int respuesta, ing;
+        int respuesta, ing, rec;
         do{
             System.out.println("Bienvenido, elige una opción: ");
             System.out.println("1. Agregar un ingrediente nuevo ");
@@ -75,7 +75,7 @@ public class Main {
                     System.out.println(i+1+". "+ingredientesDispo.get(i));
                 }
                 ArrayList<Ingrediente> ingredientesReceta = new ArrayList<>();
-                System.out.println("Ingrese el número del ingrediente correspondiente y de enteroo,"+
+                System.out.println("Ingrese el número del ingrediente correspondiente y de entero,"+
                         "si ya no quiere agregar más escriba 0");
                 do {
                     respuesta=scanner.nextInt();
@@ -129,13 +129,32 @@ public class Main {
                 } while(ing!=0);
                 break;
             case 5:
+                System.out.println("Cual desea eliminar");
+                System.out.println("Si ya no quiere eliminar recetas presione 0");
+                System.out.println("Las recetas disponibles son:");
+
+                for (int i = 0; i < recetasactuales.size(); i++) {
+                    System.out.println(i+1+". "+ recetasactuales.get(i));
+                }
+                do{
+                    rec= scanner.nextInt();
+                    if (recetasactuales.size()-rec>0){
+                        recetasactuales.remove(rec-1);
+                    }else{
+                        System.out.println("No existe esa receta");
+                        continue;
+                }
+                }while (rec!=0);
+          break;
 
 
         }
+        }while (respuesta!=0);
 
-     }while (respuesta!=0);
+
     }
-}//reto para las recetas;
+}
+        //reto para las recetas;
 //Agregar dos opciones para
 //>Quitar ingredientes
 //>Quitar recetas
