@@ -105,7 +105,7 @@ public class Main {
             case 3:
                 miRecetario.mostrarRecetario();
                 break;
-            case 4:
+              case 4:
 
                 System.out.println("Cual desea eliminar?");
                 System.out.println("si ya no deesea eliminar mas ingredientes presione 0");
@@ -114,41 +114,40 @@ public class Main {
                     for (int i = 0; i < ingredientesDispo.size(); i++) {
                         System.out.println(i + 1 + ". " + ingredientesDispo.get(i));
                     }
+                  System.out.println("Si ya no quiere eliminar mas ingredientes presione 0");
                 do {
-                    ing = scanner.nextInt();
-                    if(ingredientesDispo.size()-ing > 0){
-                        ingredientesDispo.remove(ing-1);
-                        System.out.println("Ingrediente retirado");
-                    }else{
 
-                        System.out.println("Ese ingrediente no existe");
-                        continue;
-                    }
+                        ing = scanner.nextInt();
+                        if (ingredientesDispo.size()-ing>0 &&ing>0) {
+                            ingredientesDispo.remove(ing - 1);
+                            System.out.println("Ingrediente retirado");
+                        }
+                        else {
+                            System.out.println("No existe este ingrediente");
+                            continue;
+                        }
+
 
 
                 } while(ing!=0);
                 break;
             case 5:
+                System.out.println("Las recetas disponibles son:");
+                miRecetario.mostrarRecetario();
                 System.out.println("Cual desea eliminar");
                 System.out.println("Si ya no quiere eliminar recetas presione 0");
-                System.out.println("Las recetas disponibles son:");
-
-                for (int i = 0; i < recetasactuales.size(); i++) {
-                    System.out.println(i+1+". "+ recetasactuales.get(i));
                 }
                 do{
                     rec= scanner.nextInt();
-                    if (recetasactuales.size()-rec>0){
-                        recetasactuales.remove(rec-1);
+                    if (miRecetario.getReceta().size()-rec>0 && rec>0){
+                        miRecetario.getReceta().remove(rec-1);
+                        System.out.println("Receta retirada");
                     }else{
                         System.out.println("No existe esa receta");
                         continue;
                 }
                 }while (rec!=0);
           break;
-
-
-        }
         }while (respuesta!=0);
 
 
